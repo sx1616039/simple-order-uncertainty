@@ -205,7 +205,7 @@ class ORJobShopEnv:
 if __name__ == "__main__":
     PDR_label = ["SPT", "MWKR", "FDD/MWKR", "MOPNR", "LRM", "FIFO", "LPT", "LWKR", "FDD/LWKR", "LOPNR", "SRM", "LIFO"]
     results = pd.DataFrame(columns=PDR_label, dtype=int)
-    path = "data_set_rescheduling_uncertain_order/"
+    path = "data_set_rescheduling_uncertain_time/"
     for file_name in os.listdir(path):
         title = file_name.split('.')[0]  # file name
         env = ORJobShopEnv(path, title)
@@ -218,7 +218,7 @@ if __name__ == "__main__":
             case_result.append(str(env.current_time))
         results.loc[title] = case_result
         print(title + str(case_result))
-    results.to_csv("uncertain_order_data_result.csv")
+    results.to_csv("uncertain_time_data_result.csv")
 
 
 
